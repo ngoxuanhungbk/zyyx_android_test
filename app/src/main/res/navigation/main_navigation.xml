@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="vn.hungnx.zyyxtest.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_search"
+            app:destination="@id/searchFragment"
+            app:popUpTo="@+id/main_navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="vn.hungnx.zyyxtest.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_search_to_repoDetail"
+            app:destination="@id/repoDetailFragment" />
+        <action
+            android:id="@+id/action_search_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/main_navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="vn.hungnx.zyyxtest.detail.RepoDetailFragment"
+        android:label="RepoDetailFragment"
+        tools:layout="@layout/fragment_repo_detail">
+        <argument
+            android:name="repoDetail"
+            app:argType="vn.hungnx.zyyxtest.model.GithubRepoModel" />
+    </fragment>
+</navigation>
